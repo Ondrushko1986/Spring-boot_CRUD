@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add User</title>
+</head>
+<body>
+<form action="/admin/add" method="POST">
+    <p><input type="hidden" name="id" value=0></p>
+    <label for="name">name</label>
+    <input type="text" name="name" id="name">
+    <label for="email">email</label>
+    <input type="text" name="email" id="email">
+    <label for="password">password</label>
+    <input type="text" name="password" id="password">
+    <p><select size="3" name="role" multiple>
+        <option disabled>Select a role</option>
+        <option value="ADMIN">ADMIN</option>
+        <option selected value="USER">USER</option>
+    </select></p>
+    <input type="submit" value="Add new user">
+</form>
+</body>
+</html>

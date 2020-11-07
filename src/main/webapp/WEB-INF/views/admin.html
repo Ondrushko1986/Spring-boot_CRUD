@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+</head>
+
+<body>
+<div>
+    <table border="2" style="width:100px">
+        <thead>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Roles</th>
+        </thead>
+        <tr th:each="user : ${usersList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:each="role : ${user.getRoles()}" th:text="${role.getRole()}"></td>
+            <td>
+                <a th:href="@{/admin/edit/{userid}(userid=${user.id})}">edit</a>
+                <a th:href="@{/admin/delete/{userid}(userid=${user.id})}">delete</a>
+            </td>
+        </tr>
+
+    </table>
+
+    <h4><a href="/admin/add">Add new user</a></h4>
+
+    <h4><a href="/">To home page</a></h4>
+
+    <h4><a href="/logout">Logout</a></h4>
+</div>
+</body>
+</html>

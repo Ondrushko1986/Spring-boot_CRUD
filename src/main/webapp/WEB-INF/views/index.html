@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Index</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+<div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+    <span th:case="${false}">
+        <h4><a href="/login">Enter</a></h4>
+    <h4><a href="/registration">Registration</a></h4></span>
+    <span th:case="${true}"><h4><a href="/logout">Logout</a></h4></span>
+
+</div>
+
+<h4><a href="/admin">Admin only</a></h4>
+</body>
+</html>

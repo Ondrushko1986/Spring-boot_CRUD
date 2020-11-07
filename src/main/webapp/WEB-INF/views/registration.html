@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+<form action="/registration" method="POST">
+        <p><input type="hidden" name="id" value=0>
+    </p>
+    <label for="name">name</label>
+    <input type="text" name="name" id="name">
+    <label for="email">email</label>
+    <input type="text" name="email" id="email">
+    <label for="password">password</label>
+    <input type="text" name="password" id="password">
+    <p><input type="submit" value="Add new user"></p>
+</form>
+</body>
+</html>
