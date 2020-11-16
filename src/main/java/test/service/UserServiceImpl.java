@@ -27,13 +27,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final RoleDAOImp roleDAO;
 
-    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @Autowired
-    public UserServiceImpl(UserDAOImpl userDAO, RoleDAOImp roleDAO) {
+    public UserServiceImpl(UserDAOImpl userDAO, RoleDAOImp roleDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDAO = userDAO;
         this.roleDAO = roleDAO;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
